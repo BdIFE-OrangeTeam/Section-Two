@@ -34,37 +34,49 @@ var aqiData = [
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
   var displayCityList = function (el, data) {
-    var ele = document.getElementById(el);
-
     var chinese = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
-    var insertSort = function (container, item) {
-      var swap = function (cr, i, j) {
-        var t = cr[i];
-        cr[i] = cr[j];
-        cr[j] = t;
-      };
 
-      container[container.length] = item;
-      for (var end=container.length-1; end>0; --end) {
-        if (container[end][1] > container[end-1][1]) {
-          swap(container, end, end-1);
-        }
-      }
-    };
+    // 太笨
+    // // 插入排序
+    // var insertSort = function (container, item) {
+    //   var swap = function (cr, i, j) {
+    //     var t = cr[i];
+    //     cr[i] = cr[j];
+    //     cr[j] = t;
+    //   };
+    //
+    //   container[container.length] = item;
+    //   for (var end=container.length-1; end>0; --end) {
+    //     if (container[end][1] > container[end-1][1]) {
+    //       swap(container, end, end-1);
+    //     }
+    //   }
+    // };
+    //
+    // var _data = [];
+    // // 选出污染大于60的城市并排序
+    // for (var index in data) {
+    //     if (data[index][1] > 60) {
+    //       insertSort(_data, data[index]);
+    //     }
+    // }
 
-    var _data = [];
-    for (var index in data) {
-        if (data[index][1] > 60) {
-          insertSort(_data, data[index]);
-        }
+    // 过滤器: 筛选大于60的城市
+    var filterData = aqiData.filter(function (item) {
+      return item[1] > 60;
+    });
+
+    // 排序: 将城市按污染大小排序
+    var sortData = filterData.sort(function (a, b) {
+      return b[1] > a[1];
+    });
+
+    var html = '';
+    for (var index in sortData) {
+      html += '<li>第' + chinese[index] + '名：' + sortData[index][0] + '，' + sortData[index][1] + '</li>';
     }
 
-    var li;
-    for (var index in _data) {
-      li = document.createElement("li");
-      li.innerHTML = '第' + chinese[index] + '名：' + _data[index][0] + '，' + _data[index][1];
-      ele.appendChild(li);
-    }
+    document.getElementById(el).innerHTML = html;
   };
 
   displayCityList("aqi-list", aqiData);
