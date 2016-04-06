@@ -34,8 +34,6 @@ var aqiData = [
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
   var displayCityList = function (el, data) {
-    var ele = document.getElementById(el);
-
     var chinese = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
 
     // 太笨
@@ -73,12 +71,12 @@ var aqiData = [
       return b[1] > a[1];
     });
 
-    var li;
+    var html = '';
     for (var index in sortData) {
-      li = document.createElement("li");
-      li.innerHTML = '第' + chinese[index] + '名：' + sortData[index][0] + '，' + sortData[index][1];
-      ele.appendChild(li);
+      html += '<li>第' + chinese[index] + '名：' + sortData[index][0] + '，' + sortData[index][1] + '</li>';
     }
+
+    document.getElementById(el).innerHTML = html;
   };
 
   displayCityList("aqi-list", aqiData);
