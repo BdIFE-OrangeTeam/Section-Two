@@ -2,7 +2,7 @@
 
 
 ### 一、任务目录
-* 任务十三：零基础JavaScript编码（一）[题目](http://ife.baidu.com/task/detail?taskId=13) Code Demo
+* 任务十三：零基础JavaScript编码（一）[题目](http://ife.baidu.com/task/detail?taskId=13) [Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-13.html) [Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-13.html)
 * 任务十四：零基础JavaScript编码（二）[题目](http://ife.baidu.com/task/detail?taskId=14) Code Demo
 * 任务十五：零基础JavaScript编码（三）[题目](http://ife.baidu.com/task/detail?taskId=15)
 * 任务十六：零基础JavaScript编码（四）[题目](http://ife.baidu.com/task/detail?taskId=16) Code Demo
