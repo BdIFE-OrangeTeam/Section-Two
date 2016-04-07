@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  .add-data {
+    #aqi-city-error,#aqi-value-error {
+      display: none;
+      color: red;
+    }
+
+    // .row {
+    //   display: flex;
+    //   flex-flow: row wrap;
+    //   justify-content: space-around;
+    //   align-items: center;
+    //
+    //   label,input,span {
+    //     flex: 1;
+    //   }
+    //
+    //   label {
+    //     text-align: right;
+    //   }
+    //
+    //   input {
+    //     margin: 0 2em;
+    //   }
+    //
+    //   span {
+    //     text-align: left;
+    //   }
+    // }
+  }
+
+}

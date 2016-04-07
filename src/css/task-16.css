@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body .add-data #aqi-city-error, body .add-data #aqi-value-error {
+  display: none;
+  color: red;
+}
