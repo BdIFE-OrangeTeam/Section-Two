@@ -5,7 +5,8 @@
 * 任务十三：零基础JavaScript编码（一）[题目](http://ife.baidu.com/task/detail?taskId=13) [Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-13.html) [Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-13.html)
 * 任务十四：零基础JavaScript编码（二）[题目](http://ife.baidu.com/task/detail?taskId=14) [Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-14.html) [Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-14.html)
 * 任务十五：零基础JavaScript编码（三）[题目](http://ife.baidu.com/task/detail?taskId=15) [Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-15.html) [Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-15.html)
-* 任务十六：零基础JavaScript编码（四）[题目](http://ife.baidu.com/task/detail?taskId=16) Code Demo
+* 任务十六：零基础JavaScript编码（四）[题目](http://ife.baidu.com/task/detail?taskId=16) 
+[Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-16.html) [Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-16.html)
 * 任务十七：零基础JavaScript编码（五）[题目](http://ife.baidu.com/task/detail?taskId=17) Code Demo
 * 任务十八：基础JavaScript练习（一）[题目](http://ife.baidu.com/task/detail?taskId=18) Code Demo
 * 任务十九：基础JavaScript练习（二）[题目](http://ife.baidu.com/task/detail?taskId=19) Code Demo
