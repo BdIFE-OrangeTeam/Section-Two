@@ -72,10 +72,10 @@ function renderAqiList() {
   if (aqiList.length > 0) {
     aqiTableLabel.innerHTML = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>' + aqiList.join("");
 
-    var delBtns = document.getElementsByClassName("del-btn");
-    for (var index=0; index < delBtns.length; ++index) {
-      delBtns[index].onclick = delBtnHandle;
-    }
+    // var delBtns = document.getElementsByClassName("del-btn");
+    // for (var index=0; index < delBtns.length; ++index) {
+    //   delBtns[index].onclick = delBtnHandle;
+    // }
   } else {
       aqiTableLabel.innerHTML = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>';
   }
@@ -106,8 +106,24 @@ function delBtnHandle() {
 
 function init() {
   // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
-  document.getElementById("add-btn").onclick = addBtnHandle;
+  // document.getElementById("add-btn").onclick = addBtnHandle;
   // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
+
+  // 事件代理: http://blog.csdn.net/majian_1987/article/details/8591385
+  for (var index=0; index<document.body.children.length; ++index) {
+    document.body.children[index].onclick = function (e) {
+      e = e || window.event;
+      var el = e.srcElement || e.target;
+      switch(el.className) {
+        case 'add-btn':
+          addBtnHandle();
+          break;
+        case 'del-btn':
+          delBtnHandle();
+          break;
+      }
+    };
+  }
 }
 
 init();
