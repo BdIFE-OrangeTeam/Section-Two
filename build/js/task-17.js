@@ -71,11 +71,8 @@ function renderChart() {
   if (pageState.nowSelectCity == -1) return;
   var city = chartData.data[pageState.nowSelectCity];
   var aqiChartWrap = document.getElementById('aqi-chart-wrap');
-
   var _ = '';
-  // var colDiv = document.createElement("div");
   for (var index in city[pageState.nowGraTime].data) {
-    // colDiv.className = "chart-col"
     _ += '<div class="chart-col"' +
     'title="日期: ' +
     city[pageState.nowGraTime].data[index].dateStart +
@@ -97,12 +94,15 @@ function graTimeChange() {
   var graTimes = document.getElementsByName("gra-time");
   // 确定是否选项发生了变化
   for (var index=0; index<graTimes.length; ++index) {
-    if (graTimes[index].checked && graTimes[index].value!=pageState.nowGraTime) {
-      pageState.nowGraTime = graTimes[index].value;
-      break;
+    if (graTimes[index].checked) {
+      if (graTimes[index].value != pageState.nowGraTime) {
+        pageState.nowGraTime = graTimes[index].value;
+        break;
+      } else {
+        return ;
+      }
     }
   }
-
   // 设置对应数据
 
 
@@ -118,9 +118,13 @@ function citySelectChange() {
   var cityOptions = document.getElementById("city-select")
                             .getElementsByTagName("option");
   for (var index=0; index<cityOptions.length; ++index) {
-    if (cityOptions[index].selected && cityOptions[index].value!=pageState.nowSelectCity) {
-      pageState.nowSelectCity = cityOptions[index].value;
-      break;
+    if (cityOptions[index].selected) {
+      if (cityOptions[index].value != pageState.nowSelectCity) {
+        pageState.nowSelectCity = cityOptions[index].value;
+        break;
+      } else {
+        return ;
+      }
     }
   }
 
@@ -223,6 +227,8 @@ function initAqiChartData() {
 
       for (var key in eachCity) {
           _lastDate = key; // 记录最后一天
+          _tmpValue += eachCity[key];
+          ++cicleDay;
 
           // 一周开始
           if (_index === 0 || new Date(key).getDay() === 1) {
@@ -244,15 +250,15 @@ function initAqiChartData() {
             cicleDay = 0;
           }
 
-          _tmpValue += eachCity[key];
-          ++cicleDay;
           ++_index;
       }
       // last day
-      _.data[_dateStart].dateEnd = _lastDate;
-      _.data[_dateStart].value = _tmpValue / cicleDay;
-      _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
-      _.data[_dateStart].height = _.data[_dateStart].value / chartData.maxValue;
+      if (new Date(_lastDate).getDay() != 0) {
+        _.data[_dateStart].dateEnd = _lastDate;
+        _.data[_dateStart].value = _tmpValue / cicleDay;
+        _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
+        _.data[_dateStart].height = _.data[_dateStart].value / chartData.maxValue;
+      }
 
       _.length = _length;
       _.eachWidth = chartData.width / _.length;
@@ -274,6 +280,8 @@ function initAqiChartData() {
 
       for (var key in eachCity) {
           _lastDate = key; // 记录最后一天
+          _tmpValue += eachCity[key];
+          ++cicleDay;
 
           // 计算出今天、明天的日期
           _currentDate = new Date(key);
@@ -300,15 +308,15 @@ function initAqiChartData() {
             cicleDay = 0;
           }
 
-          _tmpValue += eachCity[key];
-          ++cicleDay;
           ++_index;
       }
       // last day
-      _.data[_dateStart].dateEnd = _lastDate;
-      _.data[_dateStart].value = _tmpValue / cicleDay;
-      _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
-      _.data[_dateStart].height = _.data[_dateStart].value / chartData.maxValue;
+      if (_nextDate.getDate() != 1) {
+        _.data[_dateStart].dateEnd = _lastDate;
+        _.data[_dateStart].value = _tmpValue / cicleDay;
+        _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
+        _.data[_dateStart].height = _.data[_dateStart].value / chartData.maxValue;
+      }
 
       _.length = _length;
       _.eachWidth = chartData.width / _.length;

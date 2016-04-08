@@ -5,6 +5,8 @@
 }
 
 body {
+  width: 100%;
+  
   fieldset {
     margin: 2rem 1rem;
     padding: 1rem;
@@ -15,7 +17,7 @@ body {
   }
 
   .aqi-chart-wrap {
-    width: 700px;
+    width: 90%;
     height: 400px;
     // background-color: #000;
     margin: 2rem auto;

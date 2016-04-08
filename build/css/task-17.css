@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+body {
+  width: 100%;
+}
 body fieldset {
   margin: 2rem 1rem;
   padding: 1rem;
@@ -12,7 +15,7 @@ body fieldset legend {
   margin: 0 2rem;
 }
 body .aqi-chart-wrap {
-  width: 700px;
+  width: 90%;
   height: 400px;
   margin: 2rem auto;
   border: 1px solid #ccc;
