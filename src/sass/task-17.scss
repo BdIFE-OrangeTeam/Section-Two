@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  
+  fieldset {
+    margin: 2rem 1rem;
+    padding: 1rem;
+
+    legend {
+      margin: 0 2rem;
+    }
+  }
+
+  .aqi-chart-wrap {
+    width: 90%;
+    height: 400px;
+    // background-color: #000;
+    margin: 2rem auto;
+    border: 1px solid #ccc;
+    font-size: 0;
+    position: relative;
+
+    .chart-col {
+      width: 2.4444%;
+      display: inline-block;
+      border: 1px #ccc solid;
+      position: absolute;
+      bottom: 0;
+
+      &.chart-col-1 {
+        height: 100px;
+        background-color: #000;
+        left: 2.4444% * 0;
+      }
+
+      &.chart-col-2 {
+        height: 300px;
+        background-color: red;
+        left: 2.4444% * 1;
+      }
+
+      &.chart-col-3 {
+        height: 50px;
+        background-color: purple;
+        left: 2.4444% * 2;
+      }
+    }
+  }
+}
