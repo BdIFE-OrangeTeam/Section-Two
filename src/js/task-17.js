@@ -44,7 +44,7 @@ var aqiSourceData = {
 
 // 用于渲染图表的数据
 var chartData = {
-  width: 1,
+  width: 0.98,
   height: 1,
   maxValue: 500,
   colors: {
@@ -73,15 +73,14 @@ function renderChart() {
   var aqiChartWrap = document.getElementById('aqi-chart-wrap');
   var _ = '';
   for (var index in city[pageState.nowGraTime].data) {
-    _ += '<div class="chart-col"' +
-    'title="日期: ' +
-    city[pageState.nowGraTime].data[index].dateStart +
-    (city[pageState.nowGraTime].data[index].dateEnd ? '-' + city[pageState.nowGraTime].data[index].dateEnd : "") + ', 污染值: '+
-    city[pageState.nowGraTime].data[index].value +'" style="' +
-    'width:' + city[pageState.nowGraTime].eachWidth * 100 +
-    '%; height:' + city[pageState.nowGraTime].data[index].height * 100 +
-    '%; left:' + city[pageState.nowGraTime].eachWidth * city[pageState.nowGraTime].data[index].pk * 100 +
-    '%; background-color: ' + city[pageState.nowGraTime].data[index].backgroundColor + '"></div>';
+    _ += `<div class="chart-col" title="Date:
+    ${city[pageState.nowGraTime].data[index].dateStart}
+    ${(city[pageState.nowGraTime].data[index].dateEnd ? '-' + city[pageState.nowGraTime].data[index].dateEnd : "")}, AQI: 
+    ${city[pageState.nowGraTime].data[index].value}" style=" 
+    width: ${city[pageState.nowGraTime].eachWidth * 100}%; 
+    height: ${city[pageState.nowGraTime].data[index].height * 100}%; 
+    left:calc(${city[pageState.nowGraTime].eachWidth * city[pageState.nowGraTime].data[index].pk * 100}% + 1%); 
+    background-color: ${city[pageState.nowGraTime].data[index].backgroundColor}"></div>`;
   }
 
   aqiChartWrap.innerHTML = _;
@@ -253,7 +252,7 @@ function initAqiChartData() {
           ++_index;
       }
       // last day
-      if (new Date(_lastDate).getDay() != 0) {
+      if (new Date(_lastDate).getDay() !== 0) {
         _.data[_dateStart].dateEnd = _lastDate;
         _.data[_dateStart].value = _tmpValue / cicleDay;
         _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
@@ -311,7 +310,7 @@ function initAqiChartData() {
           ++_index;
       }
       // last day
-      if (_nextDate.getDate() != 1) {
+      if (_nextDate.getDate() !== 1) {
         _.data[_dateStart].dateEnd = _lastDate;
         _.data[_dateStart].value = _tmpValue / cicleDay;
         _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);

@@ -1,3 +1,5 @@
+'use strict';
+
 /* 数据格式演示
 var aqiSourceData = {
   "北京": {
@@ -44,7 +46,7 @@ var aqiSourceData = {
 
 // 用于渲染图表的数据
 var chartData = {
-  width: 1,
+  width: 0.98,
   height: 1,
   maxValue: 500,
   colors: {
@@ -73,15 +75,7 @@ function renderChart() {
   var aqiChartWrap = document.getElementById('aqi-chart-wrap');
   var _ = '';
   for (var index in city[pageState.nowGraTime].data) {
-    _ += '<div class="chart-col"' +
-    'title="日期: ' +
-    city[pageState.nowGraTime].data[index].dateStart +
-    (city[pageState.nowGraTime].data[index].dateEnd ? '-' + city[pageState.nowGraTime].data[index].dateEnd : "") + ', 污染值: '+
-    city[pageState.nowGraTime].data[index].value +'" style="' +
-    'width:' + city[pageState.nowGraTime].eachWidth * 100 +
-    '%; height:' + city[pageState.nowGraTime].data[index].height * 100 +
-    '%; left:' + city[pageState.nowGraTime].eachWidth * city[pageState.nowGraTime].data[index].pk * 100 +
-    '%; background-color: ' + city[pageState.nowGraTime].data[index].backgroundColor + '"></div>';
+    _ += '<div class="chart-col" title="Date:\n    ' + city[pageState.nowGraTime].data[index].dateStart + '\n    ' + (city[pageState.nowGraTime].data[index].dateEnd ? '-' + city[pageState.nowGraTime].data[index].dateEnd : "") + ', AQI: \n    ' + city[pageState.nowGraTime].data[index].value + '" style=" \n    width: ' + city[pageState.nowGraTime].eachWidth * 100 + '%; \n    height: ' + city[pageState.nowGraTime].data[index].height * 100 + '%; \n    left:calc(' + city[pageState.nowGraTime].eachWidth * city[pageState.nowGraTime].data[index].pk * 100 + '% + 1%); \n    background-color: ' + city[pageState.nowGraTime].data[index].backgroundColor + '"></div>';
   }
 
   aqiChartWrap.innerHTML = _;
@@ -93,18 +87,17 @@ function renderChart() {
 function graTimeChange() {
   var graTimes = document.getElementsByName("gra-time");
   // 确定是否选项发生了变化
-  for (var index=0; index<graTimes.length; ++index) {
+  for (var index = 0; index < graTimes.length; ++index) {
     if (graTimes[index].checked) {
       if (graTimes[index].value != pageState.nowGraTime) {
         pageState.nowGraTime = graTimes[index].value;
         break;
       } else {
-        return ;
+        return;
       }
     }
   }
   // 设置对应数据
-
 
   // 调用图表渲染函数
   renderChart();
@@ -115,15 +108,14 @@ function graTimeChange() {
  */
 function citySelectChange() {
   // 确定是否选项发生了变化
-  var cityOptions = document.getElementById("city-select")
-                            .getElementsByTagName("option");
-  for (var index=0; index<cityOptions.length; ++index) {
+  var cityOptions = document.getElementById("city-select").getElementsByTagName("option");
+  for (var index = 0; index < cityOptions.length; ++index) {
     if (cityOptions[index].selected) {
       if (cityOptions[index].value != pageState.nowSelectCity) {
         pageState.nowSelectCity = cityOptions[index].value;
         break;
       } else {
-        return ;
+        return;
       }
     }
   }
@@ -169,7 +161,7 @@ function getColor(aqiValue) {
     return chartData.colors.good;
   } else if (aqiValue < 300) {
     return chartData.colors.middle;
-  } else if (aqiValue< 400) {
+  } else if (aqiValue < 400) {
     return chartData.colors.bad;
   } else {
     return chartData.colors.worst;
@@ -187,23 +179,23 @@ function initAqiChartData() {
     var eachCity = aqiSourceData[index];
 
     // day
-    var day = (function () {
-      var _ = {data:{}},
+    var day = function () {
+      var _ = { data: {} },
           _length = 0,
           _lastDate; // 最后一天
       for (var key in eachCity) {
-          _lastDate = key; // 记录最后一天
+        _lastDate = key; // 记录最后一天
 
-          _.data[key] = {
-            pk: _length,
-            dateStart: key,
-            dataEnd: key,
-            value: eachCity[key],
-            backgroundColor: getColor(eachCity[key]),
-            height: eachCity[key] / chartData.maxValue,
-            // coordinate: [],
-          };
-          ++ _length;
+        _.data[key] = {
+          pk: _length,
+          dateStart: key,
+          dataEnd: key,
+          value: eachCity[key],
+          backgroundColor: getColor(eachCity[key]),
+          height: eachCity[key] / chartData.maxValue
+        };
+        // coordinate: [],
+        ++_length;
       }
       // last day
       // _.data[_dateStart].dateEnd = _lastDate;
@@ -213,35 +205,37 @@ function initAqiChartData() {
       _.length = _length;
       _.eachWidth = chartData.width / _.length;
       return _;
-    })();
+    }();
 
     // week
-    var week = (function () {
-      var _ = {data:{}},
+    var week = function () {
+      var _ = { data: {} },
           _length = 0,
-          _index = 0, // 所有天数
-          _tmpValue = 0,
+          _index = 0,
+          // 所有天数
+      _tmpValue = 0,
           _dateStart,
-          cicleDay = 0, // 周期的天数
-          _lastDate; // 最后一天
+          cicleDay = 0,
+          // 周期的天数
+      _lastDate; // 最后一天
 
       for (var key in eachCity) {
-          _lastDate = key; // 记录最后一天
-          _tmpValue += eachCity[key];
-          ++cicleDay;
+        _lastDate = key; // 记录最后一天
+        _tmpValue += eachCity[key];
+        ++cicleDay;
 
-          // 一周开始
-          if (_index === 0 || new Date(key).getDay() === 1) {
-            _dateStart = key;
-            _.data[_dateStart] = {
-              pk: _length,
-              dateStart: key,
-              dateEnd: key,
-            };
-            ++ _length;
-          }
-          // 一周结束
-          else if (new Date(key).getDay() === 0) {
+        // 一周开始
+        if (_index === 0 || new Date(key).getDay() === 1) {
+          _dateStart = key;
+          _.data[_dateStart] = {
+            pk: _length,
+            dateStart: key,
+            dateEnd: key
+          };
+          ++_length;
+        }
+        // 一周结束
+        else if (new Date(key).getDay() === 0) {
             _.data[_dateStart].dateEnd = key;
             _.data[_dateStart].value = _tmpValue / cicleDay;
             _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
@@ -250,10 +244,10 @@ function initAqiChartData() {
             cicleDay = 0;
           }
 
-          ++_index;
+        ++_index;
       }
       // last day
-      if (new Date(_lastDate).getDay() != 0) {
+      if (new Date(_lastDate).getDay() !== 0) {
         _.data[_dateStart].dateEnd = _lastDate;
         _.data[_dateStart].value = _tmpValue / cicleDay;
         _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
@@ -263,43 +257,46 @@ function initAqiChartData() {
       _.length = _length;
       _.eachWidth = chartData.width / _.length;
       return _;
-    })();
+    }();
 
     // month
-    var month = (function () {
-      var _ = {data:{}},
+    var month = function () {
+      var _ = { data: {} },
           _length = 0,
-          _index = 0, // 所有天数
-          _tmpValue = 0,
+          _index = 0,
+          // 所有天数
+      _tmpValue = 0,
           _dateStart,
-          cicleDay = 0, // 周期的天数
-          _currentDate, // 当前日期
-          _nextDate, // 第二天日期
-          _lastDate; // 最后一天
-
+          cicleDay = 0,
+          // 周期的天数
+      _currentDate,
+          // 当前日期
+      _nextDate,
+          // 第二天日期
+      _lastDate; // 最后一天
 
       for (var key in eachCity) {
-          _lastDate = key; // 记录最后一天
-          _tmpValue += eachCity[key];
-          ++cicleDay;
+        _lastDate = key; // 记录最后一天
+        _tmpValue += eachCity[key];
+        ++cicleDay;
 
-          // 计算出今天、明天的日期
-          _currentDate = new Date(key);
-          _nextDate = new Date(key);
-          _nextDate.setDate(_nextDate.getDate() + 1);
+        // 计算出今天、明天的日期
+        _currentDate = new Date(key);
+        _nextDate = new Date(key);
+        _nextDate.setDate(_nextDate.getDate() + 1);
 
-          // 月初
-          if (_index === 0 || _currentDate.getDate() === 1) {
-            _dateStart = key;
-            _.data[_dateStart] = {
-              pk: _length,
-              dateStart: key,
-              dateEnd: key,
-            };
-            ++ _length;
-          }
-          // 月末
-          else if (_nextDate.getDate() === 1) {
+        // 月初
+        if (_index === 0 || _currentDate.getDate() === 1) {
+          _dateStart = key;
+          _.data[_dateStart] = {
+            pk: _length,
+            dateStart: key,
+            dateEnd: key
+          };
+          ++_length;
+        }
+        // 月末
+        else if (_nextDate.getDate() === 1) {
             _.data[_dateStart].dateEnd = key;
             _.data[_dateStart].value = _tmpValue / cicleDay;
             _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
@@ -308,10 +305,10 @@ function initAqiChartData() {
             cicleDay = 0;
           }
 
-          ++_index;
+        ++_index;
       }
       // last day
-      if (_nextDate.getDate() != 1) {
+      if (_nextDate.getDate() !== 1) {
         _.data[_dateStart].dateEnd = _lastDate;
         _.data[_dateStart].value = _tmpValue / cicleDay;
         _.data[_dateStart].backgroundColor = getColor(_.data[_dateStart].value);
@@ -321,10 +318,10 @@ function initAqiChartData() {
       _.length = _length;
       _.eachWidth = chartData.width / _.length;
       return _;
-    })();
+    }();
 
     // All
-    chartData.data[index] = {day: day, week: week, month: month};
+    chartData.data[index] = { day: day, week: week, month: month };
   }
 }
 
