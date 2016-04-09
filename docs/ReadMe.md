@@ -15,3 +15,8 @@
 ### 任务十六：零基础JavaScript编码（四）
 * [事件冒泡机制]()
 * [事件代理和委托](http://blog.csdn.net/majian_1987/article/details/8591385)
+
+### 任务十七: 零基础JavaScript编码（五）
+* [多行模板字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Text_formatting)
+    * 变量嵌入: ${variable}
+    * 表达式计算: ${2 * variable - variable}
