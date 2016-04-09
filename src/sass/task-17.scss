@@ -6,10 +6,12 @@
 
 body {
   width: 100%;
-  
+
   fieldset {
     margin: 2rem 1rem;
     padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
 
     legend {
       margin: 0 2rem;
@@ -22,6 +24,7 @@ body {
     // background-color: #000;
     margin: 2rem auto;
     border: 1px solid #ccc;
+    border-radius: 1rem 1rem 0 0;
     font-size: 0;
     position: relative;
 
@@ -31,6 +34,11 @@ body {
       border: 1px #ccc solid;
       position: absolute;
       bottom: 0;
+      transition: height 2s;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       &.chart-col-1 {
         height: 100px;

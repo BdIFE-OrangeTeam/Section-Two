@@ -10,6 +10,8 @@ body {
 body fieldset {
   margin: 2rem 1rem;
   padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
 }
 body fieldset legend {
   margin: 0 2rem;
@@ -19,6 +21,7 @@ body .aqi-chart-wrap {
   height: 400px;
   margin: 2rem auto;
   border: 1px solid #ccc;
+  border-radius: 1rem 1rem 0 0;
   font-size: 0;
   position: relative;
 }
@@ -28,6 +31,10 @@ body .aqi-chart-wrap .chart-col {
   border: 1px #ccc solid;
   position: absolute;
   bottom: 0;
+  transition: height 2s;
+}
+body .aqi-chart-wrap .chart-col:hover {
+  cursor: pointer;
 }
 body .aqi-chart-wrap .chart-col.chart-col-1 {
   height: 100px;
