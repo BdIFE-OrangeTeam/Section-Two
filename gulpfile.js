@@ -31,21 +31,22 @@ var indexPage = (function () {
   }
 })() || 'index.html';
 
-var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'), // build sass
+var gulp        = require('gulp'),
+    sass        = require('gulp-ruby-sass'), // build sass
     // sass = require('gulp-sass'), //
-    jshint = require('gulp-jshint'), // check js syntax
-    concat = require('gulp-concat'), // concat js
-    uglify = require('gulp-uglify'), // compress js
-    autoprefixer = require('gulp-autoprefixer'), //
-    concatCss = require('gulp-concat-css'), // concat css
-    cleanCss = require('gulp-clean-css'), // compress css
-    sourcemaps = require('gulp-sourcemaps'), // js blank
-    imagemin = require('gulp-imagemin'), // compress images
-    notify = require('gulp-notify'), // notify info
-    // watch = require('gulp-watch'), //
-    livereload = require('gulp-livereload'), // livereload
-    webserver = require('gulp-webserver'); // webserver
+    jshint      = require('gulp-jshint'), // check js syntax
+    concat      = require('gulp-concat'), // concat js
+    uglify      = require('gulp-uglify'), // compress js
+    autoprefixer= require('gulp-autoprefixer'), //
+    concatCss   = require('gulp-concat-css'), // concat css
+    cleanCss    = require('gulp-clean-css'), // compress css
+    sourcemaps  = require('gulp-sourcemaps'), // js blank
+    imagemin    = require('gulp-imagemin'), // compress images
+    babel       = require('gulp-babel'), // 
+    notify      = require('gulp-notify'), // notify info
+    // watch    = require('gulp-watch'), //
+    livereload  = require('gulp-livereload'), // livereload
+    webserver   = require('gulp-webserver'); // webserver
 
 var MODE = process.env.npm_lifecycle_event;
 var SOURCE_DIR = './src',
@@ -95,12 +96,18 @@ var Compile = function (file) {
                     .pipe(jshint())
                     .pipe(jshint.reporter('default'))
                     .pipe(sourcemaps.init())
+                    .pipe(babel({
+                        presets: ['es2015']
+                    }))
                     .pipe(uglify())
                     .pipe(sourcemaps.write())
                     .pipe(gulp.dest(path.join(buildPath || BUILD_DIR, 'js')))
                     .pipe(livereload());
             } else {
                 gulp.src(filePath)
+                    .pipe(babel({
+                        presets: ['es2015']
+                    }))
                     .pipe(gulp.dest(path.join(buildPath || BUILD_DIR, 'js')))
                     .pipe(livereload());
             }
@@ -179,6 +186,9 @@ gulp.task('uglify', function () {
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(sourcemaps.init())
+            .pipe(babel({
+                presets: ['es2015']
+            }))
             .pipe(uglify())
             .pipe(sourcemaps.write())
             .pipe(gulp.dest(path.join(BUILD_DIR, 'js')))
