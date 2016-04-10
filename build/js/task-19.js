@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var sn;
 
@@ -20,13 +20,26 @@ var sn;
     queue = []; // reset
     for (var i = 0; i < size; ++i) {
       queue.push(randomDigit(min, max));
-    } // snapshots = [queue];
-    // render();
+    } // reset debug mode
+    DEBUG = false;
   };
 
   var testData = function testData() {
     generateRandomArray(1, 100, 40);
     snapshots.push(queue);
+  };
+
+  // 获取输入数据
+  var getInput = function getInput() {
+    var _ = document.getElementById('user-input').value.trim();
+
+    // 正则验证是否是 10 - 100 之间的数字 (两位数即可)
+    if (!/^\d{2}$/.test(_)) {
+      alert("非法数据");
+      return null;
+    }
+
+    return _;
   };
 
   // 更新数据
@@ -36,7 +49,7 @@ var sn;
 
     switch (className) {
       case 'left-in':
-        value = document.getElementById('user-input').value.trim();
+        value = getInput();
         if (!value) return;
         queue.unshift(value);
         snapshots = [queue];
@@ -44,7 +57,7 @@ var sn;
         break;
 
       case 'right-in':
-        value = document.getElementById('user-input').value.trim();
+        value = getInput();
         if (!value) return;
         queue.push(value);
         snapshots = [queue];
@@ -56,6 +69,7 @@ var sn;
           alert("已经没有值可以出了！");return;
         }
         queue.shift();
+        snapshots = [queue];
         render();
         break;
 
@@ -87,16 +101,13 @@ var sn;
 
   // 渲染数据
   var render = function render() {
-    // document.getElementById("show-area").innerHTML = queue.map(function (value) {
-    //   return `<span class="queue-col queue-col-${value}"></span>`;
-    // }).join("");
     var _ = snapshots.shift() || [];
     // console.log(_);
     if (_.length === 0) {
       clearInterval(it);return;
     }
     document.getElementById("show-area").innerHTML = _.map(function (value) {
-      return '<span class="queue-col queue-col-' + value + '" title="' + value + '"></span>';
+      return "<span class=\"queue-col queue-col-" + value + "\" title=\"" + value + "\"></span>";
     }).join("");
   };
 
@@ -129,14 +140,9 @@ var sn;
         if (callback(arrayData[j], arrayData[j + 1]) > 0) {
           swap(arrayData, j, j + 1);
         }
-        // // 渲染
-        snapshots.push(arrayData.slice());
-        // setTimeout(render, 100);
         // @TODO render all
+        snapshots.push(arrayData.slice());
       }
-
-      // sn = snapshots;
-      // console.log(snapshots);
     }
   };
 
@@ -147,6 +153,14 @@ var sn;
       DEBUG = true;
       sort(queue);
     }
+
+    if (snapshots.length === 0) {
+      alert("调试结束");
+      return;
+    }
+
+    var el = event.target || event.srcElement;
+    // el.innerText = "下一步";
 
     render();
   };
