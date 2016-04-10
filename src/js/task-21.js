@@ -124,6 +124,7 @@
 
       _data.forEach(v => {
         if (! v.trim()) return;
+        if (this.data.includes(v.trim())) return;
         if (this.data.length === 10) this.data.pop();
         this.data.unshift(v);
       });

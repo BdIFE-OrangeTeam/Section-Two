@@ -126,6 +126,7 @@
 
       _data.forEach(function (v) {
         if (!v.trim()) return;
+        if (_this.data.includes(v.trim())) return;
         if (_this.data.length === 10) _this.data.pop();
         _this.data.unshift(v);
       });
