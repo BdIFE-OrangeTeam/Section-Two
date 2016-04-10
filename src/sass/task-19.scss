@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@mixin makeColumnHeight($base: ".queue-col") {
+  @for $i from 0 to 100 {
+    #{$base}.queue-col-#{$i} {
+      height: percentage($i/100);
+    }
+  }
+}
+
+.container {
+  padding: 1rem;
+  margin: 0 auto;
+  // text-align: center;
+
+  .action-area {
+      margin: 2rem auto;
+      width: 80%;
+      border: 1px #ccc solid;
+      padding: 1rem;
+      border-radius: 1rem;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      input {
+        flex: 2;
+        width: 9rem;
+        display: inline-block;
+        border-radius: 1rem;
+        height: 2rem;
+        line-height: 1rem;
+        outline: none;
+        padding: 0 .5rem;
+        text-align: center;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none !important;
+          margin: 0;
+        }
+      }
+
+      button {
+        flex: 1;
+        height: 2rem;
+        width: 5rem;
+        outline: none;
+        border: 1px #ccc solid;
+        box-shadow: 2px 2px 4px #ccc;
+        border-radius: 1rem;
+        background-color: #0099FF;
+      }
+  }
+
+  // .show-area {
+  //   margin: 2rem auto;
+  //   width: 80%;
+  //   text-align: left;
+  //
+  //   span {
+  //     text-align: center;
+  //     display: inline-block;
+  //     width: 4rem;
+  //     height: 2rem;
+  //     line-height: 2rem;
+  //     // padding: 0 1rem;
+  //     background-color: red;
+  //     border-radius: .5rem;
+  //     overflow: hidden;
+  //     // margin: 0 .5rem;
+  //   }
+  // }
+
+  .display {
+    margin: 2rem auto;
+    width: 80%;
+    border: 1px #ccc solid;
+    padding: 1rem;
+    border-radius: 1rem;
+
+
+    .title {
+      font-size: 30px;
+      text-align: center;
+      // margin-bottom: 2rem;
+    }
+
+    .show-area {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: flex-end;
+      height: 300px;
+
+      @include makeColumnHeight(".queue-col");
+
+      .queue-col {
+        flex: 1;
+        display: inline-block;
+        // height: 10%;
+        background-color: red;
+        border: 1px #ccc solid;
+      }
+    }
+  }
+}

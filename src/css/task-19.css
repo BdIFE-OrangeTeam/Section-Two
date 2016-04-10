@@ -1,0 +1,370 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 1rem;
+  margin: 0 auto;
+}
+.container .action-area {
+  margin: 2rem auto;
+  width: 80%;
+  border: 1px #ccc solid;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .action-area input {
+  flex: 2;
+  width: 9rem;
+  display: inline-block;
+  border-radius: 1rem;
+  height: 2rem;
+  line-height: 1rem;
+  outline: none;
+  padding: 0 .5rem;
+  text-align: center;
+}
+.container .action-area input::-webkit-outer-spin-button, .container .action-area input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+.container .action-area button {
+  flex: 1;
+  height: 2rem;
+  width: 5rem;
+  outline: none;
+  border: 1px #ccc solid;
+  box-shadow: 2px 2px 4px #ccc;
+  border-radius: 1rem;
+  background-color: #0099FF;
+}
+.container .display {
+  margin: 2rem auto;
+  width: 80%;
+  border: 1px #ccc solid;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.container .display .title {
+  font-size: 30px;
+  text-align: center;
+}
+.container .display .show-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-end;
+  height: 300px;
+}
+.container .display .show-area .queue-col.queue-col-0 {
+  height: 0%;
+}
+.container .display .show-area .queue-col.queue-col-1 {
+  height: 1%;
+}
+.container .display .show-area .queue-col.queue-col-2 {
+  height: 2%;
+}
+.container .display .show-area .queue-col.queue-col-3 {
+  height: 3%;
+}
+.container .display .show-area .queue-col.queue-col-4 {
+  height: 4%;
+}
+.container .display .show-area .queue-col.queue-col-5 {
+  height: 5%;
+}
+.container .display .show-area .queue-col.queue-col-6 {
+  height: 6%;
+}
+.container .display .show-area .queue-col.queue-col-7 {
+  height: 7%;
+}
+.container .display .show-area .queue-col.queue-col-8 {
+  height: 8%;
+}
+.container .display .show-area .queue-col.queue-col-9 {
+  height: 9%;
+}
+.container .display .show-area .queue-col.queue-col-10 {
+  height: 10%;
+}
+.container .display .show-area .queue-col.queue-col-11 {
+  height: 11%;
+}
+.container .display .show-area .queue-col.queue-col-12 {
+  height: 12%;
+}
+.container .display .show-area .queue-col.queue-col-13 {
+  height: 13%;
+}
+.container .display .show-area .queue-col.queue-col-14 {
+  height: 14%;
+}
+.container .display .show-area .queue-col.queue-col-15 {
+  height: 15%;
+}
+.container .display .show-area .queue-col.queue-col-16 {
+  height: 16%;
+}
+.container .display .show-area .queue-col.queue-col-17 {
+  height: 17%;
+}
+.container .display .show-area .queue-col.queue-col-18 {
+  height: 18%;
+}
+.container .display .show-area .queue-col.queue-col-19 {
+  height: 19%;
+}
+.container .display .show-area .queue-col.queue-col-20 {
+  height: 20%;
+}
+.container .display .show-area .queue-col.queue-col-21 {
+  height: 21%;
+}
+.container .display .show-area .queue-col.queue-col-22 {
+  height: 22%;
+}
+.container .display .show-area .queue-col.queue-col-23 {
+  height: 23%;
+}
+.container .display .show-area .queue-col.queue-col-24 {
+  height: 24%;
+}
+.container .display .show-area .queue-col.queue-col-25 {
+  height: 25%;
+}
+.container .display .show-area .queue-col.queue-col-26 {
+  height: 26%;
+}
+.container .display .show-area .queue-col.queue-col-27 {
+  height: 27%;
+}
+.container .display .show-area .queue-col.queue-col-28 {
+  height: 28%;
+}
+.container .display .show-area .queue-col.queue-col-29 {
+  height: 29.0%;
+}
+.container .display .show-area .queue-col.queue-col-30 {
+  height: 30%;
+}
+.container .display .show-area .queue-col.queue-col-31 {
+  height: 31%;
+}
+.container .display .show-area .queue-col.queue-col-32 {
+  height: 32%;
+}
+.container .display .show-area .queue-col.queue-col-33 {
+  height: 33%;
+}
+.container .display .show-area .queue-col.queue-col-34 {
+  height: 34%;
+}
+.container .display .show-area .queue-col.queue-col-35 {
+  height: 35%;
+}
+.container .display .show-area .queue-col.queue-col-36 {
+  height: 36%;
+}
+.container .display .show-area .queue-col.queue-col-37 {
+  height: 37%;
+}
+.container .display .show-area .queue-col.queue-col-38 {
+  height: 38%;
+}
+.container .display .show-area .queue-col.queue-col-39 {
+  height: 39%;
+}
+.container .display .show-area .queue-col.queue-col-40 {
+  height: 40%;
+}
+.container .display .show-area .queue-col.queue-col-41 {
+  height: 41%;
+}
+.container .display .show-area .queue-col.queue-col-42 {
+  height: 42%;
+}
+.container .display .show-area .queue-col.queue-col-43 {
+  height: 43%;
+}
+.container .display .show-area .queue-col.queue-col-44 {
+  height: 44%;
+}
+.container .display .show-area .queue-col.queue-col-45 {
+  height: 45%;
+}
+.container .display .show-area .queue-col.queue-col-46 {
+  height: 46%;
+}
+.container .display .show-area .queue-col.queue-col-47 {
+  height: 47%;
+}
+.container .display .show-area .queue-col.queue-col-48 {
+  height: 48%;
+}
+.container .display .show-area .queue-col.queue-col-49 {
+  height: 49%;
+}
+.container .display .show-area .queue-col.queue-col-50 {
+  height: 50%;
+}
+.container .display .show-area .queue-col.queue-col-51 {
+  height: 51%;
+}
+.container .display .show-area .queue-col.queue-col-52 {
+  height: 52%;
+}
+.container .display .show-area .queue-col.queue-col-53 {
+  height: 53%;
+}
+.container .display .show-area .queue-col.queue-col-54 {
+  height: 54%;
+}
+.container .display .show-area .queue-col.queue-col-55 {
+  height: 55%;
+}
+.container .display .show-area .queue-col.queue-col-56 {
+  height: 56%;
+}
+.container .display .show-area .queue-col.queue-col-57 {
+  height: 57.0%;
+}
+.container .display .show-area .queue-col.queue-col-58 {
+  height: 58.0%;
+}
+.container .display .show-area .queue-col.queue-col-59 {
+  height: 59%;
+}
+.container .display .show-area .queue-col.queue-col-60 {
+  height: 60%;
+}
+.container .display .show-area .queue-col.queue-col-61 {
+  height: 61%;
+}
+.container .display .show-area .queue-col.queue-col-62 {
+  height: 62%;
+}
+.container .display .show-area .queue-col.queue-col-63 {
+  height: 63%;
+}
+.container .display .show-area .queue-col.queue-col-64 {
+  height: 64%;
+}
+.container .display .show-area .queue-col.queue-col-65 {
+  height: 65%;
+}
+.container .display .show-area .queue-col.queue-col-66 {
+  height: 66%;
+}
+.container .display .show-area .queue-col.queue-col-67 {
+  height: 67%;
+}
+.container .display .show-area .queue-col.queue-col-68 {
+  height: 68%;
+}
+.container .display .show-area .queue-col.queue-col-69 {
+  height: 69%;
+}
+.container .display .show-area .queue-col.queue-col-70 {
+  height: 70%;
+}
+.container .display .show-area .queue-col.queue-col-71 {
+  height: 71%;
+}
+.container .display .show-area .queue-col.queue-col-72 {
+  height: 72%;
+}
+.container .display .show-area .queue-col.queue-col-73 {
+  height: 73%;
+}
+.container .display .show-area .queue-col.queue-col-74 {
+  height: 74%;
+}
+.container .display .show-area .queue-col.queue-col-75 {
+  height: 75%;
+}
+.container .display .show-area .queue-col.queue-col-76 {
+  height: 76%;
+}
+.container .display .show-area .queue-col.queue-col-77 {
+  height: 77%;
+}
+.container .display .show-area .queue-col.queue-col-78 {
+  height: 78%;
+}
+.container .display .show-area .queue-col.queue-col-79 {
+  height: 79%;
+}
+.container .display .show-area .queue-col.queue-col-80 {
+  height: 80%;
+}
+.container .display .show-area .queue-col.queue-col-81 {
+  height: 81%;
+}
+.container .display .show-area .queue-col.queue-col-82 {
+  height: 82%;
+}
+.container .display .show-area .queue-col.queue-col-83 {
+  height: 83%;
+}
+.container .display .show-area .queue-col.queue-col-84 {
+  height: 84%;
+}
+.container .display .show-area .queue-col.queue-col-85 {
+  height: 85%;
+}
+.container .display .show-area .queue-col.queue-col-86 {
+  height: 86%;
+}
+.container .display .show-area .queue-col.queue-col-87 {
+  height: 87%;
+}
+.container .display .show-area .queue-col.queue-col-88 {
+  height: 88%;
+}
+.container .display .show-area .queue-col.queue-col-89 {
+  height: 89%;
+}
+.container .display .show-area .queue-col.queue-col-90 {
+  height: 90%;
+}
+.container .display .show-area .queue-col.queue-col-91 {
+  height: 91%;
+}
+.container .display .show-area .queue-col.queue-col-92 {
+  height: 92%;
+}
+.container .display .show-area .queue-col.queue-col-93 {
+  height: 93%;
+}
+.container .display .show-area .queue-col.queue-col-94 {
+  height: 94%;
+}
+.container .display .show-area .queue-col.queue-col-95 {
+  height: 95%;
+}
+.container .display .show-area .queue-col.queue-col-96 {
+  height: 96%;
+}
+.container .display .show-area .queue-col.queue-col-97 {
+  height: 97%;
+}
+.container .display .show-area .queue-col.queue-col-98 {
+  height: 98%;
+}
+.container .display .show-area .queue-col.queue-col-99 {
+  height: 99%;
+}
+.container .display .show-area .queue-col {
+  flex: 1;
+  display: inline-block;
+  background-color: red;
+  border: 1px #ccc solid;
+}
