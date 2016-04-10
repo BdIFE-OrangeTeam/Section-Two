@@ -54,6 +54,7 @@
       input: $("#tag-input"),
       display: $("#tag-display"),
     },
+    className: 'tag-item',
     data: [], // new Set(), // 还是用 Set ? 但是 set 没有 map 而且 set 无法从前面插入
     init: function (data) {
       this.data = this.data.concat(data);
@@ -94,8 +95,8 @@
     render: function () {
       this.el.display.innerHTML = this.data.map(
         function (value) {
-          return `<span class="tag-item">${value}</span>`;
-        }
+          return `<span class="${this.className}">${value}</span>`;
+        }.bind(this)
       ).join("");
     },
   };
@@ -105,6 +106,7 @@
       input: $("#hobby-input"),
       display: $('#hobby-display'),
     },
+    className: 'hobby-item',
     data: [],
     init: function (data) {
       this.data = this.data.concat(data);
@@ -131,8 +133,8 @@
     render: function () {
       this.el.display.innerHTML = this.data.map(
         function (value) {
-          return `<span class="hobby-item">${value}</span>`;
-        }
+          return `<span class="${this.className}">${value}</span>`;
+        }.bind(this)
       ).join("");
     },
   };
