@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container .tag-area {
+  padding: .5rem;
+}
+.container .tag-area .tag-input {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .tag-area .tag-input label {
+  flex: 1;
+  text-align: center;
+}
+.container .tag-area .tag-input .tag-input-re {
+  flex: 5;
+  border-radius: .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: .5rem;
+  outline: none;
+}
+.container .tag-area .tag-display {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0;
+}
+.container .tag-area .tag-display .tag-item {
+  height: 2rem;
+  line-height: 2rem;
+  margin-right: .5rem;
+  background-color: #00CCFF;
+  padding: 0 .5rem;
+  border-radius: .5rem;
+  transition: width 1s, background-color 1s;
+}
+.container .tag-area .tag-display .tag-item:hover {
+  background-color: #F00;
+}
+.container .hobby-area {
+  margin: .5rem;
+}
+.container .hobby-area .hobby-input {
+  width: 50%;
+  height: 150px;
+  resize: none;
+  border-radius: .5rem;
+  padding: .5rem;
+  outline: none;
+}
+.container .hobby-area .hobby-submit {
+  display: block;
+  outline: none;
+  width: 50%;
+  margin: .5rem 0;
+  height: 2rem;
+  border-radius: .5rem;
+  color: #FFF;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  cursor: pointer;
+}
+.container .hobby-area .hobby-display {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0;
+}
+.container .hobby-area .hobby-display .hobby-item {
+  height: 2rem;
+  line-height: 2rem;
+  margin-right: .5rem;
+  background-color: #FFFFCC;
+  padding: 0 .5rem;
+  border-radius: .5rem;
+  transition: width 1s, background-color 1s;
+}
+.container .hobby-area .hobby-display .hobby-item:hover {
+  background-color: #F00;
+}

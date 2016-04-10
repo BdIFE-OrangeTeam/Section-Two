@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  .tag-area {
+    padding: .5rem;
+    // width: 50%;
+
+    .tag-input {
+      // border: 1px #ccc solid;
+      width: 50%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      label {
+        flex: 1;
+        text-align: center;
+      }
+
+      .tag-input-re {
+        flex: 5;
+        border-radius: .5rem;
+        height: 2rem;
+        line-height: 2rem;
+        padding: .5rem;
+        outline: none;
+      }
+    }
+
+    .tag-display {
+      width: 50%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 1rem 0;
+
+      .tag-item {
+        height: 2rem;
+        line-height: 2rem;
+        margin-right: .5rem;
+        background-color: #00CCFF;
+        padding: 0 .5rem;
+        border-radius: .5rem;
+        // width: 50px;
+        // transition: width 1s;
+        transition: width 1s, background-color 1s;
+
+        &:hover {
+          background-color: #F00;
+          // width: 100px;
+        }
+      }
+    }
+  }
+
+  .hobby-area {
+    margin: .5rem;
+    .hobby-input {
+      // display: block;
+      width: 50%;
+      height: 150px;
+      resize: none;
+      border-radius: .5rem;
+      padding: .5rem;
+      outline: none;
+    }
+
+    .hobby-submit {
+      display: block;
+      outline: none;
+      width: 50%;
+      margin: .5rem 0;
+      height: 2rem;
+      border-radius: .5rem;
+      color: #FFF;
+      background-color: #337ab7;
+      border-color: #2e6da4;
+      cursor: pointer;
+    }
+
+    .hobby-display {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 1rem 0;
+
+      .hobby-item {
+        height: 2rem;
+        line-height: 2rem;
+        margin-right: .5rem;
+        background-color:#FFFFCC;
+        padding: 0 .5rem;
+        border-radius: .5rem;
+        // width: 50px;
+        transition: width 1s, background-color 1s;
+
+        &:hover {
+          background-color: #F00;
+          // width: 100px;
+        }
+      }
+    }
+  }
+}
