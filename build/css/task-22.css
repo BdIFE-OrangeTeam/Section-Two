@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.node {
+  border: 1px #000 solid;
+  background-color: #FFF;
+}
+
+.container {
+  margin: 5rem auto;
+  width: 80%;
+  height: 200px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container .node-2 {
+  width: 45%;
+  height: 90%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container .node-2 .node-3 {
+  width: inherit;
+  height: inherit;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container .node-2 .node-3 .node-4 {
+  width: inherit;
+  height: inherit;
+}
+
+.btn-groups {
+  width: 80%;
+  height: 40px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem auto;
+}
+.btn-groups .btn {
+  border-top: none;
+  border-left: none;
+  padding: .5rem;
+  outline: none;
+  border-radius: .3rem;
+  width: 100px;
+}
+.btn-groups select {
+  border-top: none;
+  border-left: none;
+  padding: .5rem;
+  outline: none;
+  border-radius: .3rem;
+}

@@ -49,14 +49,23 @@
     * 使用对象初始化器(或叫对象字面量): {}
     * 使用构造函数: 事实上就是一个函数
     * 使用 [Object.create](https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Object/create) 方法
-    * 通过 this 引用对象 
+    * 通过 this 引用对象
 
 ```
-// DOM, NodeList, 
+// DOM, NodeList,
 // nodeLists = document.getElementsByTagName()
 Array.prototype.forEach.call(nodeLists, function (item) {
     console.log(item);
 });
 ```
 
-
+### 任务二十二：JavaScript和树（一）
+* [原型编程与面向对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
+* 阮一峰
+  * [Javascript 面向对象编程（一）：封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
+  * [Javascript面向对象编程（二）：构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
+  * [Javascript面向对象编程（三）：非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
+* [数据结构和算法 二叉树](https://segmentfault.com/a/1190000000740261)
+* [Data Structures With JavaScript: Tree](http://code.tutsplus.com/articles/data-structures-with-javascript-tree--cms-23393)
+* [Computer science in JavaScript: Binary search tree](https://www.nczonline.net/blog/2009/06/09/computer-science-in-javascript-binary-search-tree-part-1/)
+* [练习Javascript](http://ife.baidu.com/task/detail?taskId=22)

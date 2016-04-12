@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.node {
+  border: 1px #000 solid;
+  background-color: #FFF;
+}
+
+.container {
+  margin: 5rem auto;
+  width: 80%;
+  height: 200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  .node-2 {
+    width: 45%;
+    height: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .node-3 {
+      width: inherit;
+      height: inherit;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      .node-4 {
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+}
+
+.btn-groups {
+  width: 80%;
+  height: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem auto;
+
+  .btn {
+    border-top: none;
+    border-left: none;
+    padding: .5rem;
+    outline: none;
+    border-radius: .3rem;
+    width: 100px;
+  }
+
+  select {
+    border-top: none;
+    border-left: none;
+    padding: .5rem;
+    outline: none;
+    border-radius: .3rem;
+  }
+}

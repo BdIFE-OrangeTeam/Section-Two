@@ -23,7 +23,9 @@
 * 任务二十一：基础JavaScript练习（四）[题目](http://ife.baidu.com/task/detail?taskId=21)
 [Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-21.html)
 [Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-21.html)
-* 任务二十二：JavaScript和树（一）[题目](http://ife.baidu.com/task/detail?taskId=22) Code Demo
+* 任务二十二：JavaScript和树（一）[题目](http://ife.baidu.com/task/detail?taskId=22) 
+[Code](https://github.com/BdIFE-OrangeTeam/Section-Two/blob/gh-pages/build/task-22.html)
+[Demo](http://bdife-orangeteam.github.io/Section-Two/build/task-22.html)
 * 任务二十三：JavaScript和树（二）[题目](http://ife.baidu.com/task/detail?taskId=23) Code Demo
 * 任务二十四：JavaScript和树（三）[题目](http://ife.baidu.com/task/detail?taskId=24) Code Demo
 * 任务二十五：JavaScript和树（四）[题目](http://ife.baidu.com/task/detail?taskId=25) Code Demo
