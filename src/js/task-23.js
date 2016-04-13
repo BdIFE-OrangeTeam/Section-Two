@@ -197,16 +197,23 @@ function Tree() {
         });
       },
       search: function () {
-        oo.clear();
         var searchText = getSearchText();
+        if (! searchText) return ;
+
+        var found = false;
+        oo.clear();
+
         oo.search(getMethod(), function (node) {
           if (node.childNodes[0].textContent.trim() === searchText) {
             node.style.backgroundColor = 'rgb(241, 100, 100)';
+            found = true;
             // node.style.border = "none";
             // node.style.boxShadow = "2px 2px 2px rgba(0, 0, 0, 0.50)";
             // node.style.color = "#FFF";
           }
         });
+
+        if (! found) alert(`表中不存在: ${searchText}`);
       }
     };
 }
