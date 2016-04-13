@@ -201,7 +201,10 @@ function Tree() {
         var searchText = getSearchText();
         oo.search(getMethod(), function (node) {
           if (node.childNodes[0].textContent.trim() === searchText) {
-            node.style.backgroundColor = '#F00';
+            node.style.backgroundColor = 'rgb(241, 100, 100)';
+            // node.style.border = "none";
+            // node.style.boxShadow = "2px 2px 2px rgba(0, 0, 0, 0.50)";
+            // node.style.color = "#FFF";
           }
         });
       }
