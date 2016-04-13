@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript和树（一）</title>
+  <link rel="stylesheet" href="css/task-24.css">
+</head>
+<body>
+  <div class="container node node-1">1
+    <div class="node node-2">2
+      <div class="node node-3">3
+        <div class="node node-4">4
+          <div class="node node-5">5</div>
+        </div>
+        <div class="node node-4">6
+          <div class="node node-6">7</div>
+          <div class="node node-6">8</div>
+          <!-- <div class="node node-6">9</div>
+          <div class="node node-6">10</div> -->
+        </div>
+      </div>
+      <div class="node node-3">11
+        <div class="node node-4" style="width:80%;">12
+          <div class="node node-5">13
+            <div class="node node-7">14</div>
+          </div>
+        </div>
+        <!-- <div class="node node-4"></div> -->
+      </div>
+    </div>
+    <div class="node node-2">15
+      <div class="node node-3">16
+        <div class="node node-5">17</div>
+        <!-- <div class="node node-4"></div> -->
+      </div>
+      <div class="node node-3">18
+        <div class="node node-4">19</div>
+        <div class="node node-4">20
+          <div class="node node-5">21</div>
+        </div>
+      </div>
+      <div class="node node-3">22
+        <div class="node node-4">23</div>
+        <div class="node node-4">24</div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-groups">
+    <select id="method" class="methods">
+      <option value="preOrder" selected="selected">前序遍历</option>
+      <option value="postOrder">后序遍历</option>
+    </select>
+    <button class="btn run">运行</button>
+    <button class="btn debug">单步调试</button>
+    <input id="search-text" type="text" placeholder="请输入要查找的数据" >
+    <button class="btn search">查找</button>
+  </div>
+  <div class="btn-groups">
+    <button class="btn delete" disabled="disabled">删除</button>
+    <input id="add-text" type="text" placeholder="请输入增加的数据" disabled="">
+    <button class="btn add" disabled="disabled">增加</button>
+  </div>
+  <script src="js/task-24.js"></script>
+</body>
+</html>
