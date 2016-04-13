@@ -74,7 +74,6 @@ BTree.prototype = {
 
     startNode = startNode || this._root; // startNode will not be null
 
-    // addedNode.style.backgroundColor = "";
     startNode.appendChild(addedNode);
   },
 
