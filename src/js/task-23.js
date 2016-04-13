@@ -139,7 +139,11 @@ BTree.prototype = {
       this._index = 0; // reset index
       callback();
     }
-  }
+  },
+
+  search: function (method, callback) {
+    this.traverse(callback, method);
+  },
 };
 
 
@@ -156,6 +160,10 @@ function getMethod() {
   return Array.prototype.filter.call(_options, function (e) {
     if (e.selected) return e.value;
   })[0].value;
+}
+
+function getSearchText() {
+  return $("#search-text").value.trim();
 }
 
 function Tree() {
@@ -187,6 +195,15 @@ function Tree() {
         oo.next(getMethod(), function () {
           el.innerText = '单步调试';
         });
+      },
+      search: function () {
+        oo.clear();
+        var searchText = getSearchText();
+        oo.search(getMethod(), function (node) {
+          if (node.childNodes[0].textContent.trim() === searchText) {
+            node.style.backgroundColor = '#F00';
+          }
+        });
       }
     };
 }
@@ -210,6 +227,9 @@ addEventListener("click", function (e) {
     case 'methods':
       treeObj.stop($(".btn.stop") || $(".btn.run"));
       // reset();
+      break;
+    case 'btn search':
+      treeObj.search();
       break;
   }
 });

@@ -48,7 +48,7 @@
           justify-content: space-around;
           align-items: center;
           width: 80%;
-          height: inherit;
+          height: 60%;
         }
 
         .node-6 {
@@ -72,6 +72,12 @@
   justify-content: space-around;
   align-items: center;
   margin: 2rem auto;
+
+  input {
+    padding: .5rem;
+    outline: none;
+    border-radius: .3rem;
+  }
 
   .btn {
     border-top: none;

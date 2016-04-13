@@ -48,7 +48,7 @@
   justify-content: space-around;
   align-items: center;
   width: 80%;
-  height: inherit;
+  height: 60%;
 }
 .container .node-2 .node-3 .node-4 .node-6 {
   display: flex;
@@ -67,6 +67,11 @@
   justify-content: space-around;
   align-items: center;
   margin: 2rem auto;
+}
+.btn-groups input {
+  padding: .5rem;
+  outline: none;
+  border-radius: .3rem;
 }
 .btn-groups .btn {
   border-top: none;
