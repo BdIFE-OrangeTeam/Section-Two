@@ -13,7 +13,7 @@ var indexPage = (function () {
     return process.env.npm_config_argv ? JSON.parse(process.env.npm_config_argv).original : null;
   })() || process.argv;
 
-  for (i in args) {
+  for (var i in args) {
     if (args[i] === '--index' && args[parseInt(i) + 1]) {
       var indexString = args[parseInt(i) + 1];
       if (typeof indexString != 'string') {
@@ -42,7 +42,7 @@ var gulp        = require('gulp'),
     cleanCss    = require('gulp-clean-css'), // compress css
     sourcemaps  = require('gulp-sourcemaps'), // js blank
     imagemin    = require('gulp-imagemin'), // compress images
-    babel       = require('gulp-babel'), // 
+    babel       = require('gulp-babel'), //
     notify      = require('gulp-notify'), // notify info
     // watch    = require('gulp-watch'), //
     livereload  = require('gulp-livereload'), // livereload
@@ -78,14 +78,16 @@ var Compile = function (file) {
             if (MODE === 'build') {
                 gulp.src(filePath)
                     .pipe(autoprefixer('last 2 version'))
-                    .pipe(sourcemaps.init())
+                    // .pipe(sourcemaps.init())
                     .pipe(cleanCss())
-                    .pipe(sourcemaps.write())
+                    // .pipe(sourcemaps.write())
                     .pipe(gulp.dest(path.join(buildPath || BUILD_DIR, 'css')))
                     .pipe(livereload());
             } else {
                 gulp.src(filePath)
+                    .pipe(sourcemaps.init())
                     .pipe(autoprefixer('last 2 version'))
+                    .pipe(sourcemaps.write())
                     .pipe(gulp.dest(path.join(buildPath || BUILD_DIR, 'css')))
                     .pipe(livereload());
             }
@@ -95,19 +97,21 @@ var Compile = function (file) {
                 gulp.src(filePath)
                     .pipe(jshint())
                     .pipe(jshint.reporter('default'))
-                    .pipe(sourcemaps.init())
+                    // .pipe(sourcemaps.init())
                     .pipe(babel({
                         presets: ['es2015']
                     }))
                     .pipe(uglify())
-                    .pipe(sourcemaps.write())
+                    // .pipe(sourcemaps.write())
                     .pipe(gulp.dest(path.join(buildPath || BUILD_DIR, 'js')))
                     .pipe(livereload());
             } else {
                 gulp.src(filePath)
+                    .pipe(sourcemaps.init())
                     .pipe(babel({
                         presets: ['es2015']
                     }))
+                    .pipe(sourcemaps.write())
                     .pipe(gulp.dest(path.join(buildPath || BUILD_DIR, 'js')))
                     .pipe(livereload());
             }

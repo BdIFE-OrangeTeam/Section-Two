@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript和树（一）</title>
+  <link rel="stylesheet" href="css/task-23.css">
+</head>
+<body>
+  <div class="container node node-1">
+    <div class="node node-2">
+      <div class="node node-3">
+        <div class="node node-4">
+          <div class="node node-5"></div>
+        </div>
+        <div class="node node-4">
+          <div class="node node-6"></div>
+          <div class="node node-6"></div>
+          <div class="node node-6"></div>
+          <div class="node node-6"></div>
+        </div>
+      </div>
+      <div class="node node-3">
+        <div class="node node-4" style="width:80%;">
+          <div class="node node-5">
+            <div class="node node-7"></div>
+          </div>
+        </div>
+        <!-- <div class="node node-4"></div> -->
+      </div>
+    </div>
+    <div class="node node-2">
+      <div class="node node-3">
+        <div class="node node-5"></div>
+        <!-- <div class="node node-4"></div> -->
+      </div>
+      <div class="node node-3">
+        <div class="node node-4"></div>
+        <div class="node node-4">
+          <div class="node node-5"></div>
+        </div>
+      </div>
+      <div class="node node-3">
+        <div class="node node-4"></div>
+        <div class="node node-4"></div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-groups">
+    <select id="method" class="methods">
+      <option value="preOrder" selected="selected">前序遍历</option>
+      <option value="postOrder">后序遍历</option>
+    </select>
+    <button class="btn run">运行</button>
+    <button class="btn debug">单步调试</button>
+  </div>
+  <script src="js/task-23.js"></script>
+</body>
+</html>
