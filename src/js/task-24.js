@@ -223,6 +223,10 @@ function Tree() {
         addBtn.disabled = "disabled";
       };
 
+      this.focus = function () {
+        addNodeInput.focus();
+      };
+
       return this;
     }
 
@@ -276,6 +280,7 @@ function Tree() {
       target: function (el) {
 
         if (oo.contains(el)) {
+          new setState().focus();
           oo.clear();
           targetNode = el;
           el.style.backgroundColor = '#F00';
