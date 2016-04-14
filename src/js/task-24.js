@@ -14,8 +14,9 @@ BTree.prototype = {
   constructor: BTree,
 
   // 根据选择的遍历方法遍历
-  traverse: function (process, method) {
+  traverse: function (process, method, beginNode) {
     method = method || 'preOrder';
+    beginNode = beginNode || this._root;
 
     // 前序遍历
     function preOrder(node) {
@@ -54,21 +55,52 @@ BTree.prototype = {
 
     switch(method) {
       case 'preOrder':
-        preOrder(this._root);
+        // preOrder(this._root);
+        preOrder(beginNode);
         break;
       case 'inOrder':
-        inOrder(this._root);
+        // inOrder(this._root);
+        inOrder(beginNode);
         break;
       case 'postOrder':
-        postOrder(this._root);
+        // postOrder(this._root);
+        postOrder(beginNode);
         break;
     }
+  },
+
+  add: function (addedNode, startNode) {
+    this.clear(); // reset all style
+
+    startNode = startNode || this._root; // startNode will not be null
+
+    startNode.appendChild(addedNode);
+  },
+
+  contains: function (node, startNode) {
+    startNode = startNode || this._root;
+    var found = false;
+
+    this.traverse(function (enode) {
+      if (enode === node) {
+        found = true;
+      }
+    });
+
+    return found;
   },
 
   clear: function () {
     this.traverse(function (node) {
       node.style.backgroundColor = "#FFF";
     });
+  },
+
+  remove: function (startNode) {
+    // 只能用后序遍历删除节点
+    this.traverse(function (node) {
+      node.parentNode.removeChild(node); // parentNode and parentElement
+    }, 'postOrder', startNode);
   },
 
   toArray: function (method) {
@@ -146,28 +178,57 @@ BTree.prototype = {
   },
 };
 
-
-function reset() {
-  if ($(".btn.stop")) {
-    $(".btn.stop").innerText = '运行';
-    $(".btn.stop").className = 'btn run';
-    $(".btn.debug").innerText = '单步调试';
-  }
-}
-
-function getMethod() {
-  var _options = $('#method').children;
-  return Array.prototype.filter.call(_options, function (e) {
-    if (e.selected) return e.value;
-  })[0].value;
-}
-
-function getSearchText() {
-  return $("#search-text").value.trim();
-}
-
+// 实际操作
 function Tree() {
     var oo = new BTree(".container");
+    var targetNode;
+
+    function reset() {
+      if ($(".btn.stop")) {
+        $(".btn.stop").innerText = '运行';
+        $(".btn.stop").className = 'btn run';
+        $(".btn.debug").innerText = '单步调试';
+      }
+    }
+
+    function getMethod() {
+      var _options = $('#method').children;
+      return Array.prototype.filter.call(_options, function (e) {
+        if (e.selected) return e.value;
+      })[0].value;
+    }
+
+    function getSearchText() {
+      return $("#search-text").value.trim();
+    }
+
+    function getNewNodeText() {
+      return $("#add-text").value.trim();
+    }
+
+    function setState() {
+      var delBtn = $(".btn.delete");
+      var addNodeInput = $("#add-text");
+      var addBtn = $(".btn.add");
+
+      this.enable = function () {
+        delBtn.disabled = "";
+        addNodeInput.disabled = "";
+        addBtn.disabled = "";
+      };
+
+      this.disable = function () {
+        delBtn.disabled = "disabled";
+        addNodeInput.disabled = "disabled";
+        addBtn.disabled = "disabled";
+      };
+
+      this.focus = function () {
+        addNodeInput.focus();
+      };
+
+      return this;
+    }
 
     return {
       run: function (el) {
@@ -214,7 +275,38 @@ function Tree() {
         });
 
         if (! found) alert(`表中不存在: ${searchText}`);
-      }
+      },
+      // 选择节点: 只有选择父节点中的节点才能删除和添加
+      target: function (el) {
+
+        if (oo.contains(el)) {
+          new setState().focus();
+          oo.clear();
+          targetNode = el;
+          el.style.backgroundColor = '#F00';
+          new setState().enable();
+        } else if (el.id != 'add-text'){
+          new setState().disable();
+          oo.clear();
+        }
+      },
+      delete: function () {
+        if (targetNode) {
+          oo.remove(targetNode); // // 禁用删除和增加按钮
+          new setState().disable();
+        }
+
+      },
+      add: function () {
+        if (targetNode) {
+          new setState().disable(); // 禁用删除和增加按钮
+          var _newNode = document.createElement('div');
+          _newNode.className = "node new";
+          _newNode.innerText = getNewNodeText();
+          _newNode.style.backgroundColor = "#0F0";
+          oo.add(_newNode, targetNode);
+        }
+      },
     };
 }
 
@@ -240,6 +332,15 @@ addEventListener("click", function (e) {
       break;
     case 'btn search':
       treeObj.search();
+      break;
+    case 'btn delete':
+      treeObj.delete();
+      break;
+    case 'btn add':
+      treeObj.add();
+      break;
+    default:
+      treeObj.target(el);
       break;
   }
 });
