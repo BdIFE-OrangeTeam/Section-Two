@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: '';
+  clear: both;
+}
+
+.container .side-bar {
+  border: 1px #ccc solid;
+  width: 40%;
+  min-width: 200px;
+  margin: .5rem;
+  padding: .5rem;
+}
+.container .side-bar .open, .container .side-bar .close {
+  border: 1px #ccc solid;
+  margin: .2rem 0;
+  padding: .2rem;
+  background-color: #FFF;
+}
+.container .side-bar .open .title, .container .side-bar .close .title {
+  padding: 0 .2rem;
+}
+.container .side-bar .open .title .fa-remove, .container .side-bar .open .title .fa-plus, .container .side-bar .open .title .fa-check, .container .side-bar .close .title .fa-remove, .container .side-bar .close .title .fa-plus, .container .side-bar .close .title .fa-check {
+  display: none;
+}
+.container .side-bar .open .title:hover .fa-remove, .container .side-bar .open .title:hover .fa-plus, .container .side-bar .open .title:hover .fa-check, .container .side-bar .close .title:hover .fa-remove, .container .side-bar .close .title:hover .fa-plus, .container .side-bar .close .title:hover .fa-check {
+  display: block;
+  float: right;
+}
+.container .side-bar .open .title:hover .fa-remove:hover, .container .side-bar .open .title:hover .fa-plus:hover, .container .side-bar .open .title:hover .fa-check:hover, .container .side-bar .close .title:hover .fa-remove:hover, .container .side-bar .close .title:hover .fa-plus:hover, .container .side-bar .close .title:hover .fa-check:hover {
+  cursor: pointer;
+}
+.container .side-bar .open {
+  display: block;
+  padding: .5rem;
+}
+.container .side-bar .open .title .dir-name {
+  display: inline-block;
+  width: 70%;
+}
+.container .side-bar .close {
+  display: block;
+  padding: .5rem;
+}
+.container .side-bar .close div:not(.title) {
+  display: none;
+}
+.container .side-bar ul {
+  width: 80%;
+  border: 1px #ccc solid;
+  margin: .5rem;
+  padding: .5rem;
+}
+.container .side-bar ul li {
+  list-style: none;
+  padding-left: 1rem;
+  margin: .1rem 0;
+}
+.container .side-bar ul li ul {
+  padding: .5rem .5rem;
+  margin: 0;
+}
+.container .side-bar i {
+  margin-right: .5rem;
+}
